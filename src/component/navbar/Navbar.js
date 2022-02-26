@@ -15,7 +15,7 @@ export default function Navbar() {
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="" />
+          <img src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
           <span>Homepage</span>
           <span>Serise</span>
           <span>Movies</span>

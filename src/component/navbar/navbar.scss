@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   z-index: 999;
-  background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.4) 50%);
+  background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.7) 50%);
   transition: all 0.5s;
 
   &.scrolled {
@@ -23,7 +23,7 @@
       display: flex;
       align-items: center;
       img {
-        height: 25px;
+        height: 70px;
         margin-right: 40px;
       }      
       span {

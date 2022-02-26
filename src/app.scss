@@ -1,8 +1,13 @@
 :root {
-  --main-color: #0b0b0b
+  --main-color: #141414;
 }
 
 .App {
   font-family: 'Roboto', sans-serif;
+  button {
+    background-color: inherit;
+    border: none;
+    padding: 0;
+  }
 }
 

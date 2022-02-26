@@ -3,17 +3,21 @@ import "./featured.scss"
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 
 
-export default function Featured({type}) {
+export default function Featured() {
   return (
     <div className="featured">
-      {type && (
+      (
         <div className="category">
-          <span>{type === "movie" ? "Movies" : "Series "}</span>
-          <select name="genre" id="genre">
-            <option>Genre</option>
+          <span>Skills</span>
+          <select name="HTML" id="HTML">
+            <option value="">HTML</option>
+            <option value="">CSS</option>
+            <option value="">JavaScript</option>
+            <option value="">React</option>
+            <option value="">Sass</option>
           </select>
         </div>
-      )}
+      )
       <img src={process.env.PUBLIC_URL + "/대문사진.jpg"} alt="" />
       <div className="info">
         <div className="title">About me</div>
