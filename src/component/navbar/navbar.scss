@@ -28,7 +28,7 @@
       }      
       span {
         margin-right: 20px;
-        cursor: pointer;
+        cursor:grab;
       }
     }
 
@@ -45,6 +45,33 @@
           object-fit: cover;
           cursor: pointer;
         }
+
+        .notice {
+          .icon {
+            color: var( --main-red);
+          }
+          .options {
+            display: none;
+            background-color: var(--main-color);
+            border-radius: 5px;
+          }
+          span {
+            padding: 10px;
+            cursor: pointer;
+          }
+
+          &:hover {
+            .options {
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              right: 70px;
+              top: 70px;
+              font-size: 20px;
+            }
+          }
+        }
+
 
         .profile {
           .options {
@@ -63,6 +90,9 @@
               display: flex;
               flex-direction: column;
               position: absolute;
+              right: 5px;
+              top: 70px;
+              font-size: 20px;
             }
           }
         }
