@@ -1,6 +1,7 @@
 .list {
     width: 100%;
     margin-top: 100px;
+   
 
   .listTitle {
     color: #fff;
@@ -36,8 +37,8 @@
     .container {
       margin-left: 60px;
       display: flex;
-      margin-top: 10px;
       width: max-content;
+      margin-top: 10px;
       transform: translateX(0);
       transition: all 0.1s linear;
     }

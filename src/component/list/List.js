@@ -15,13 +15,13 @@ export default function List() {
     let distance2 = listRef.current.getBoundingClientRect()
     if(direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1)
-      listRef.current.style.transform = `translateX(${515 + distance}px)`
+      listRef.current.style.transform = `translateX(${500 + distance}px)`
     }
     if(direction === "right" && sliderNumber < 2) {
       setSliderNumber(sliderNumber + 1)
-      listRef.current.style.transform = `translateX(${-515 + distance}px)`
+      listRef.current.style.transform = `translateX(${-500 + distance}px)`
     }
-    console.log(distance2)
+    console.log(distance)
   }
 
   return (
@@ -29,10 +29,11 @@ export default function List() {
       <span className="listTitle">Continue to watch</span>
       <div className="warpper">
         <ArrowBackIosIcon className="sliderArrow left" onClick={()=>handleClick("left")} style={{ display: !isMoved && "none" }}/>
+
         <div className="container" ref={listRef}>
-          
           <ListItem/>
         </div>
+
         <ArrowForwardIosIcon className="sliderArrow right" onClick={()=>handleClick("right")} />
       </div>
     </div>

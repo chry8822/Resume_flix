@@ -6,58 +6,95 @@
   overflow: hidden;
   transition: all 0.4s;
   color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-
-  .imgWrap{
+  
+  
+  .itemWrap {
+    position: relative;
+    transition: all 0.3s;
     
-    height: 300px;
-    overflow: hidden;
-    
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &:hover {
-    width: 800px;
-    height: 100%;
-    box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
-    transition: all 0.4s;
-    
-    img {
-      height: 300px;
+    &:hover {
+      width: 800px;
+      height: 400px;
+      box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
+      transition: all 0.3s;
+      top: -80px;
+      position: absolute;
+      z-index: 999;
       
+      
+      img {
+        height: 300px;
+        border-top-left-radius: 5px ;
+        border-top-right-radius: 5px ;
+      }
+    }
+
+    .imgWrap {
+      position: relative;
+      transition: all 0.3s;
+
+
+      .title {
+        position: absolute;
+        bottom: 30%;
+        font-size: 30px;
+        text-shadow: 2px 2px 2px rgb(49, 49, 49);
+        left: 10px;
+     }
+    }
+    
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+
     }
   }
 
+
   .itemInfo {
+    transition: all 0.3s;
+
     opacity: 0;
     display: flex;
     flex-direction: column;
     padding: 5px;
-    transition: all 0.4s;
-    transform: translateY(-163px);
+    background-color: var(--main-color);
+    // transform: translateY(-163px);
 
 
     .icons {
       display: flex;
       margin-bottom: 10px;
-      
-      .icon {
+
+      button {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        margin-right: 10px;
+        cursor: pointer;
+
+        .icon {
         width: 40px;
         height: 40px;
-      }
+       }
+      }  
     }
 
     .infoWrap{
-      height: 100px;
       display: flex;
-      flex-direction: column;
-      font-size: 16px;
+      align-items: center;
+      font-size: 12px;
+      padding-bottom: 10px;
+
+      .dot {
+        font-size: small;
+        color: gray;
+      }
+      div {
+        padding: 5px;
+      }
 
     }
 
