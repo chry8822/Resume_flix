@@ -1,8 +1,17 @@
 :root {
   --main-color: #141414;
   --main-red: 	#E50914;
+  --main-green: #46d369;
 }
 
+@keyframes shine {
+  from {
+    background-color: gray;
+  }
+  to {
+    background-color: #141414;
+  }
+}
 
 .App {
   font-family: 'Roboto', sans-serif;
