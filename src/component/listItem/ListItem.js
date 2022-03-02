@@ -15,6 +15,12 @@ export default function ListItem() {
   }
 
 
+  function playVideo (index) {
+    return hoverIndex === index 
+    ? hoverIndex === index && process.env.PUBLIC_URL + infoData[index].gif 
+    : ""
+  }
+ 
 
 
   return infoData.map((data, index) => (
@@ -25,8 +31,11 @@ export default function ListItem() {
       <div className="itemWrap">
         <div className="testWrap">
           <div className="imgWrap">
-            <img src={process.env.PUBLIC_URL + "/대문사진.jpg"} alt="" />
-            <div className="title">Title : {infoData[index].title}</div>
+         
+              <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + infoData[index].img}
+              autoPlay loop muted="muted"></video>
+
+            <div className="title">{infoData[index].title}</div>
           </div>
           <div className="itemInfo"
             style={hoverIndex === index ? hoveredStyle : {}}>

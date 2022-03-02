@@ -1,10 +1,10 @@
 import "./list.scss"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ListItem from './../listItem/ListItem';
 import { useRef, useState } from "react";
+import EducationListItem from "../listItem/EducationListItem"
 
-export default function List() {
+export default function EducationList() {
   const [isMoved, setIsMoved] = useState(false)
   const [sliderNumber, setSliderNumber] = useState(0)
   const listRef = useRef()
@@ -26,12 +26,12 @@ export default function List() {
 
   return (
     <div className="list">
-      <span className="listTitle">Project</span>
+      <span className="listTitle">Education</span>
       <div className="warpper">
         <ArrowBackIosIcon className="sliderArrow left" onClick={()=>handleClick("left")} style={{ display: !isMoved && "none" }}/>
 
-        <div className="container" ref={listRef}>
-          <ListItem/>
+        <div className="container">
+          <EducationListItem />
         </div>
 
         <ArrowForwardIosIcon className="sliderArrow right" onClick={()=>handleClick("right")} />

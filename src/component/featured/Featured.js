@@ -23,19 +23,6 @@ export default function Featured() {
     }
   }
 
-  function donwConfirm (e) {
-    function prevent (e) {
-      console.log("11123")
-      e.preventDefault();
-    }
-    if(window.confirm("PDF 이력서를 다운 받으시겠습니까?")) {
-      prevent(e);
-      console.log("dfa")
-      window.location.href = "../.././public/resume.pdf";
-    }
-    return false
-  }
-
   const changeInfoStyle = {
     // width: "30%",
     // height: "50%",
@@ -103,7 +90,7 @@ export default function Featured() {
             </button>
             <button className="play">
               <PlayArrow />
-              <a href="javascript:void(0);" target="_new" onClick={()=>donwConfirm()}>Download Resume</a>
+              <a href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>Download Resume</a>
             </button>
           </div>
         </div>

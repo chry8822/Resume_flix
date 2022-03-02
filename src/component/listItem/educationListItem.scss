@@ -1,4 +1,4 @@
-.listItem {
+.eduListItem {
   width: 500px;
   height: 300px;
   background-color: var(--main-color);
@@ -7,56 +7,111 @@
   transition: all 0.4s;
   color: #fff;
   
-  
   .itemWrap {
     position: relative;
+    
     .testWrap {
+      
       position: absolute;
       top: 0;
       width: 500px;
-      height: 300px;
+      height: 250px;
       transition: all 0.3s;
       overflow: hidden;
     }
     
     &:hover {
+      .backColor {
+        opacity: 0.9;
+      }
+
       .testWrap {
         width: 800px;
-        height: 600px;
+        height: 400px;
         box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
         top: -80px;
         z-index: 999;
         
-        
-        .imgShow {
+        .textWrap {
+          opacity: 1;
+          .decs {
+            line-height: 60px;
+            text-align: center;
+            
+            div {
+              font-size: 30px;
+              text-shadow: 2px 3px 3px black;
+            }
+            .edu {
+              font-weight: 500;
+            }
+  
+            .date {
+              font-size: 20px;
+            }
+          }
+          
+        }
+        img {
           height: 400px;
           border-top-left-radius: 5px ;
           border-top-right-radius: 5px ;
         }
       }
+      .title {
+        opacity: 0;
+      }
     }
 
     .imgWrap {
+      width: 100%;
+      height: 100%;
       position: relative;
       transition: all 0.3s;
-
-
+      
       .title {
+        width: 100%;
         position: absolute;
-        bottom: 30%;
+        bottom: 10%;
         font-size: 30px;
         text-shadow: 2px 2px 2px rgb(49, 49, 49);
-        left: 10px;
+        text-align: center;
         font-family: 'Black Han Sans', sans-serif;
+        transition: all 0.4s;
 
      }
+      .textWrap {
+        opacity: 0;
+        transition: all 0.4s;
+
+        .decs {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+          font-size: 20px;
+          color: #fff;
+        }
+
+      }
+
     }
     
-    .imgShow {
-      // height: 100%;
+    img {
+      height: 100%;
       width: 100%;
       object-fit: cover;
       transition: all 0.3s;
+    }
+
+    .backColor {
+      opacity: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      transition: all 0.4s;
     }
   }
 
