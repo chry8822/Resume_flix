@@ -1,4 +1,4 @@
-import "./list.scss"
+import "./educationList.scss"
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useRef, useState } from "react";
@@ -12,7 +12,6 @@ export default function EducationList() {
   const handleClick = (direction) => {
     setIsMoved(true)
     let distance = listRef.current.getBoundingClientRect().x - 60
-    let distance2 = listRef.current.getBoundingClientRect()
     if(direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1)
       listRef.current.style.transform = `translateX(${500 + distance}px)`
@@ -21,19 +20,16 @@ export default function EducationList() {
       setSliderNumber(sliderNumber + 1)
       listRef.current.style.transform = `translateX(${-500 + distance}px)`
     }
-    console.log(distance)
   }
 
   return (
-    <div className="list">
+    <div className="eduList">
       <span className="listTitle">Education</span>
       <div className="warpper">
         <ArrowBackIosIcon className="sliderArrow left" onClick={()=>handleClick("left")} style={{ display: !isMoved && "none" }}/>
-
-        <div className="container">
+        <div className="container" ref={listRef}>
           <EducationListItem />
         </div>
-
         <ArrowForwardIosIcon className="sliderArrow right" onClick={()=>handleClick("right")} />
       </div>
     </div>

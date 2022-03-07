@@ -1,26 +1,29 @@
 import "./listItem.scss"
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { dataContext } from './../../App';
 import PlayCircleFilledWhiteOutlinedIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
-
 export default function ListItem() {
   let infoData = useContext(dataContext)
   const [hoverIndex, setHoverIndex] = useState(-1);
+  const [isActive, setIsActive] = useState(false);
 
   const hoveredStyle = {
     opacity: 1,
   }
 
 
-  function playVideo (index) {
-    return hoverIndex === index 
-    ? hoverIndex === index && process.env.PUBLIC_URL + infoData[index].gif 
-    : ""
+  function playVideo(index) {
+    return hoverIndex === index
+      ? hoverIndex === index && process.env.PUBLIC_URL + infoData[index].gif
+      : "";
   }
- 
+
+  function modalClose() {
+   
+  }
 
 
   return infoData.map((data, index) => (
@@ -28,13 +31,14 @@ export default function ListItem() {
       onMouseEnter={() => setHoverIndex(index)}
       onMouseLeave={() => setHoverIndex(-1)}
     >
-      <div className="itemWrap">
-        <div className="testWrap">
+      <div className={isActive ? "itemWrap modal" : "itemWrap"}>
+        <div className={isActive ? "testWrap modal" : "testWrap"}
+          onClick={() => setIsActive(true)}
+          onMouseLeave={()=> setIsActive(false)}
+        >
           <div className="imgWrap">
-         
-              <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + infoData[index].img}
+            <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + infoData[index].img}
               autoPlay loop muted="muted"></video>
-
             <div className="title">{infoData[index].title}</div>
           </div>
           <div className="itemInfo"
@@ -57,6 +61,7 @@ export default function ListItem() {
               <div>{infoData[index].desc}</div>
               <FiberManualRecordIcon className="dot" />
               <div>{infoData[index].fn}</div>
+              <div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div>
             </div>
           </div>
         </div>

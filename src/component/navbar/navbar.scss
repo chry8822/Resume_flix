@@ -4,12 +4,16 @@
   font-size: 14px;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
   background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.7) 50%);
   transition: all 0.5s;
 
   &.scrolled {
     background-color: var(--main-color);
+
+    span {
+      color: var(--main-gray);
+    }
   }
 
   .container {
@@ -25,9 +29,11 @@
       img {
         height: 70px;
         margin-right: 40px;
+        cursor: pointer;
       }      
       span {
         margin-right: 20px;
+        transition: all 0.4s;
       }
     }
 

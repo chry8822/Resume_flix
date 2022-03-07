@@ -1,0 +1,39 @@
+.footer {
+  max-width: 1000px;
+  margin: 20px auto 0;
+
+  .snsWrap{
+    margin-top: 200px;
+    a{
+      padding-right: 30px;
+      .snsIcon{
+        width: 25px;
+        height: 100%;
+        filter: invert(86%) sepia(99%) saturate(2%) hue-rotate(183deg) brightness(109%) contrast(97%);
+        transition: all 0.3s;
+
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+
+  .member {
+    color: var(--main-gray);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    li {
+      padding: 0 0 10px 0;
+    }
+  }
+
+  .copyTextWrap{
+    padding-bottom: 50px;
+    li{
+      color: var(--main-gray);
+      margin-top: 5px;
+    }
+  }
+}

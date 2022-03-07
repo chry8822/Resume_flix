@@ -2,7 +2,7 @@ import "./navbar.scss"
 import { Search, Notifications, ArrowDropDown } from "@material-ui/icons";
 import { useState } from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   window.onscroll = () => {
@@ -10,12 +10,12 @@ export default function Navbar() {
     return () => (window.onscroll = null);
   }
 
-  console.log(isScrolled)
+
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
-          <img src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
+          <img onClick={props.pageToHome} src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
           <span>HTML</span>
           <span>CSS</span>
           <span>JavaScript</span>
