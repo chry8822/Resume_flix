@@ -6,18 +6,18 @@ import Slider from "../slider/Slider";
 
 
 export default function Featured() {
-  const [isActive, setisActive] = useState(false);
+  const [isAboutZoomed, setisAboutZoomed] = useState(false);
 
-  function aboutToggle() {
-    if (isActive === true) {
-      setisActive(false)
+  function toggleZoom() {
+    if (isAboutZoomed) {
+      setisAboutZoomed(false)
     } else {
-      setisActive(true)
+      setisAboutZoomed(true)
     }
   }
 
-  function yearActive() {
-    if (isActive === true) {
+  function renderYear() {
+    if (isAboutZoomed) {
       return "1990"
     } else {
       return "90"
@@ -44,49 +44,57 @@ export default function Featured() {
   return (
     <div className="featured">
 
-        <Slider />
+      <Slider />
 
       <div className="myName"></div>
       <div className="yearWrap">
-        <div className="year"
-          onClick={() => { isActive(true) }}
-        >{yearActive()}</div>
+        <div className="year">{isAboutZoomed ? '1990' : '90'}</div>
       </div>
       <div className="infoWrap"
-        onMouseLeave={() => setisActive(false)}
+        onMouseLeave={() => setisAboutZoomed(false)}
       >
         <div className="info"
-          style={isActive === true ? changeInfoStyle : {}}
+          style={isAboutZoomed ? changeInfoStyle : {}}
         >
           <div className="title"
-            style={{ fontSize: isActive === true ? "60px" : "" }}
+            style={{ fontSize: isAboutZoomed ? "60px" : "" }}
           >About me</div>
-          <span className="desc"
-            style={isActive === true ? changeDescStyle : {}}
+          <ul className="desc"
+            style={isAboutZoomed ? changeDescStyle : {}}
           >
             <div>
               'Keep true to the dreams of thy youth' <br />
               당신이 젊은 시절 꿈꾸었던 것에 충실하라’
             </div>
-            <FiberManualRecordIcon className="dot" /> 안녕하세요 프론트엔드 개발자로서 꿈을 이루어 가는 오국화 입니다!  <br />
-            <FiberManualRecordIcon className="dot" /> 누군가와 함께 배우고 공부하기 위해서 github와 블로그를 운영하고 있습니다.  <br />
-            <FiberManualRecordIcon className="dot" /> 일관성과 꾸준함을 받쳐 줄 수 있는 체력을 위해서 주 4일 이상은 운동을 합니다.  <br />
-            <FiberManualRecordIcon className="dot" /> 항상 모르는 것에 대해 탐구하고 손으로 써보며 이해 하는걸 좋아합니다.  <br />
-            <FiberManualRecordIcon className="dot" /> 함께 커피 마시고 지식을 나누고 성장할 때 성취감을 느낍니다.
-          </span>
+            <li>
+              <FiberManualRecordIcon className="dot" /> 안녕하세요 프론트엔드 개발자로서 꿈을 이루어 가는 오국화 입니다!
+            </li>
+            <li>
+              <FiberManualRecordIcon className="dot" /> 누군가와 함께 배우고 공부하기 위해서 github와 블로그를 운영하고 있습니다.
+            </li>
+            <li>
+              <FiberManualRecordIcon className="dot" /> 일관성과 꾸준함을 받쳐 줄 수 있는 체력을 위해서 주 4일 이상은 운동을 합니다.
+            </li>
+            <li>
+              <FiberManualRecordIcon className="dot" /> 항상 모르는 것에 대해 탐구하고 손으로 써보며 이해 하는걸 좋아합니다.
+            </li>
+            <li>
+              <FiberManualRecordIcon className="dot" /> 함께 커피 마시고 지식을 나누고 성장할 때 성취감을 느낍니다.
+            </li>
+          </ul>
           <div className="buttons"
-            style={isActive === true ? changeButtonStyle : {}}
+            style={isAboutZoomed ? changeButtonStyle : {}}
           >
             <button className="more"
-              onClick={() => aboutToggle()}
+              onClick={() => toggleZoom()}
             >
               <InfoOutlined />
               <span>크게보기</span>
             </button>
-            <button className="play">
+            <a className="download" href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>
               <PlayArrow />
-              <a href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>Download Resume</a>
-            </button>
+              Download Resume
+            </a>
           </div>
         </div>
       </div>

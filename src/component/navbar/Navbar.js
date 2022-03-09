@@ -23,17 +23,17 @@ export default function Navbar(props) {
           <span>SASS</span>
         </div>
         <div className="right">
-            <Search className="icon"/>
+          <Search className="icon" />
           <span>Develope KID</span>
           <div className="notice">
-              <Notifications className="icon"/>
-              <div className="options">
-                  <span>무엇이든 알려주세요!</span>
-              </div>
+            <Notifications className="icon" />
+            <div className="options">
+              <span>무엇이든 알려주세요!</span>
+            </div>
           </div>
           <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="" />
           <div className="profile">
-            <ArrowDropDown className="icon"/>
+            <ArrowDropDown className="icon" />
             <div className="options">
               <span>Phone : 010-7197-3084</span>
               <span>Email : goggg8822@naver.com</span>
@@ -44,3 +44,4 @@ export default function Navbar(props) {
     </div>
   )
 }
+ 

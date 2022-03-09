@@ -1,12 +1,11 @@
 import "./listItem.scss"
-import { useState, useContext, useRef } from 'react';
-import { dataContext } from './../../App';
+import { useState, useRef } from 'react';
 import PlayCircleFilledWhiteOutlinedIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
-export default function ListItem() {
-  let infoData = useContext(dataContext)
+export default function ListItem(props) {
+  const { data, index } = props;
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [isActive, setIsActive] = useState(false);
 
@@ -17,58 +16,63 @@ export default function ListItem() {
 
   function playVideo(index) {
     return hoverIndex === index
-      ? hoverIndex === index && process.env.PUBLIC_URL + infoData[index].gif
+      ? hoverIndex === index && process.env.PUBLIC_URL + data.gif
       : "";
   }
 
-  function modalClose() {
-   
-  }
-
-
-  return infoData.map((data, index) => (
+  return (
     <div className="listItem"
       onMouseEnter={() => setHoverIndex(index)}
       onMouseLeave={() => setHoverIndex(-1)}
     >
       <div className={isActive ? "itemWrap modal" : "itemWrap"}>
-        <div className={isActive ? "testWrap modal" : "testWrap"}
+        <div className={`testWrap ${isActive ? 'modal' : ''}`}
           onClick={() => setIsActive(true)}
-          onMouseLeave={()=> setIsActive(false)}
+          onMouseLeave={() => setIsActive(false)}
         >
           <div className="imgWrap">
-            <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + infoData[index].img}
+            <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + data.img}
               autoPlay loop muted="muted"></video>
-            <div className="title">{infoData[index].title}</div>
+            <div className="title">{data.title}</div>
           </div>
           <div className="itemInfo"
             style={hoverIndex === index ? hoveredStyle : {}}>
             <div className="icons">
-              <button onClick={() => window.open(`${infoData[index].link}`, "_blank")}>
+              <button onClick={() => window.open(`${data.link}`, "_blank")}>
                 <PlayCircleFilledWhiteOutlinedIcon className="icon" />
                 <span>Move to Web</span>
               </button>
-              <button onClick={() => window.open(`${infoData[index].git}`, "_blank")}>
+              <button onClick={() => window.open(`${data.git}`, "_blank")}>
                 <AddCircleOutlineOutlinedIcon className="icon" />
                 <span>Move to git</span>
               </button>
             </div>
             <div className="infoWrap">
-              <div className="infoTime">{infoData[index].time} <span className="infoTimeNotice">New</span> </div>
-              <FiberManualRecordIcon className="dot" />
-              <div>{infoData[index].stack}</div>
-              <FiberManualRecordIcon className="dot" />
-              <div>{infoData[index].desc}</div>
-              <FiberManualRecordIcon className="dot" />
-              <div>{infoData[index].fn}</div>
-              <div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div><div>{infoData[index].fn}</div>
+              <div className="infoTime">
+                {data.time}
+                <span className="infoTimeNotice">New</span>
+              </div>
+
+              <div className="infoDecsWrap">
+                <div>
+                  <FiberManualRecordIcon className="dot" />
+                  <div>{data.stack}</div>
+                </div>
+                <div>
+                  <FiberManualRecordIcon className="dot" />
+                  <div>{data.desc}</div>
+                </div>
+                <div>
+                  <FiberManualRecordIcon className="dot" />
+                  <div>{data.fn}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-  ));
+  )
 }
 
 

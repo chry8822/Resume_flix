@@ -1,16 +1,10 @@
 import "./educationListItem.scss"
-import { useState, useContext } from 'react';
-import eduData from "../../eduData";
+import { useState } from 'react';
 
-
-export default function EducationListItem() {
+export default function EducationListItem({ index, data }) {
   const [hoverIndex, setHoverIndex] = useState(-1);
 
-  const hoveredStyle = {
-    opacity: 0.9,
-  }
-
-  return eduData.map((data, index) => (
+  return (
     <div className="eduListItem"
       onMouseEnter={() => setHoverIndex(index)}
       onMouseLeave={() => setHoverIndex(-1)}
@@ -18,14 +12,14 @@ export default function EducationListItem() {
       <div className="itemWrap">
         <div className="testWrap">
           <div className="imgWrap">
-            <img src={process.env.PUBLIC_URL + eduData[index].img} alt="" />
+            <img src={process.env.PUBLIC_URL + data.img} alt="" />
             <div className="backColor"></div>
-            <div className="title">{eduData[index].school}</div>
+            <div className="title">{data.school}</div>
             <div className="textWrap">
               <div className="decs">
-                <div>{eduData[index].school} </div>
-                <div className="edu"> {eduData[index].edu} 과 </div>
-                <div className="date"> {eduData[index].date}   </div>
+                <div>{data.school} </div>
+                <div className="edu"> {data.edu} 과 </div>
+                <div className="date"> {data.date} </div>
               </div>
             </div>
           </div>
@@ -33,7 +27,10 @@ export default function EducationListItem() {
       </div>
     </div>
 
-  ));
+  );
 }
+
+
+
 
 

@@ -104,3 +104,28 @@
     }
   }
 }
+
+@media (max-width:380px) {
+  .navbar {
+
+    .left {
+      span {
+         display: none;
+      }
+    }
+    .right {
+      .notice {
+        display: none;
+      }
+      .profile {
+        display: none;
+      }
+      img {
+        display: none;
+      }
+      .icon {
+        display: none;
+      }
+    }
+  }
+}

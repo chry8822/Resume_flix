@@ -1,36 +1,36 @@
-import "./list.scss"
+import { useRef, useState } from "react";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ListItem from './../listItem/ListItem';
-import { useRef, useState } from "react";
 
+import "./list.scss"
+ 
+const ITEM_WIDTH = 520;
+const ARROW_WIDTH = 60;
 
-export default function List() {
-  const [isMoved, setIsMoved] = useState(false)
+export default function List(props) {
   const [sliderNumber, setSliderNumber] = useState(0)
-  const listRef = useRef()
+  const listRef = useRef();
 
   const handleClick = (direction) => {
-    setIsMoved(true)
-    let distance = listRef.current.getBoundingClientRect().x - 60
     if (direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1)
-      listRef.current.style.transform = `translateX(${500 + distance}px)`
+      listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber - 1)}px)`
     }
-    if (direction === "right" && sliderNumber < 2) {
+    if (direction === "right" && sliderNumber < 5) {
       setSliderNumber(sliderNumber + 1)
-      listRef.current.style.transform = `translateX(${-500 + distance}px)`
+      listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber + 1)}px)`
     }
-    console.log(distance)
   }
 
   return (
     <div className="list">
-      <span className="listTitle">Project</span>
+  
+      <span className="listTitle">{props.title}</span>
       <div className="warpper">
-        <ArrowBackIosIcon className="sliderArrow left" onClick={() => handleClick("left")} style={{ display: !isMoved && "none" }} />
+        <ArrowBackIosIcon className="sliderArrow left" onClick={() => handleClick("left")} style={{ display: sliderNumber === 0 && "none" }} />
         <div className="container" ref={listRef}>
-          <ListItem />
+          { props.children }
         </div>
         <ArrowForwardIosIcon className="sliderArrow right" onClick={() => handleClick("right")} />
       </div>
