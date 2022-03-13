@@ -12,14 +12,14 @@
 
   .warpper {
     position: relative;
-    
+
     .sliderArrow {
       width: 50px;
       height: 100%;
       background-color: rgb(22,22,22,0.5);
       color: #fff;
       position: absolute;
-      z-index: 99;
+      z-index: 999;
       top: 0;
       bottom: 0;
       margin: auto;
@@ -35,14 +35,48 @@
       }
     }
     .container {
+      position: relative;
       margin-left: 60px;
       display: flex;
       width: max-content;
       margin-top: 10px;
       transform: translateX(0);
       transition: all 0.1s linear;
-      z-index: 999;
       font-size: 0;
+      &:hover {
+        // [NOTE]: 여기 호버할때, z-index 끌어 올려줘서 다른 곳의 List보다 우선순위 높여줌
+        z-index: 99;        
+      }
     }
   }
+}
+
+@media (max-width : 380px) {
+  .eduList.list {
+    margin-top: 100px;
+  }
+  .list {
+    height: 300px;
+    margin-top: 15px;
+
+    .listTitle {
+      margin-left: 20px;
+    }
+
+    .warpper {
+
+      .sliderArrow {
+        width: 20px;
+        &.left {
+          padding-left: 0px;
+        }
+        &.right {
+          top: 0;
+        }
+      }
+      .container {
+        margin-left: 20px;
+      }
+  }
+ }
 }

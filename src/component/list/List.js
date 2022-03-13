@@ -1,12 +1,9 @@
 import { useRef, useState } from "react";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ListItem from './../listItem/ListItem';
-
 import "./list.scss"
  
 const ITEM_WIDTH = 520;
-const ARROW_WIDTH = 60;
 
 export default function List(props) {
   const [sliderNumber, setSliderNumber] = useState(0)
@@ -24,11 +21,13 @@ export default function List(props) {
   }
 
   return (
-    <div className="list">
+    <div className={props.eduList}>
   
       <span className="listTitle">{props.title}</span>
       <div className="warpper">
-        <ArrowBackIosIcon className="sliderArrow left" onClick={() => handleClick("left")} style={{ display: sliderNumber === 0 && "none" }} />
+        <ArrowBackIosIcon className="sliderArrow left" onClick={() => handleClick("left")}
+         style={{ display: sliderNumber === 0 && "none" }} 
+         />
         <div className="container" ref={listRef}>
           { props.children }
         </div>

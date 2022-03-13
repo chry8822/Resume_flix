@@ -20,7 +20,7 @@ export default function Home(props) {
       <Navbar pageToHome={props.pageToHome} />
       <Featured />
       
-      <List title="Project">
+      <List title="Project" eduList="list">
         {
           infoData.map((data, index) => 
             (<ListItem data={data} key={`${index}`} index={index}/>)
@@ -28,7 +28,7 @@ export default function Home(props) {
         }
       </List>
 
-      <List title="Education">
+      <List title="Education" eduList="eduList list">
         {eduData.map((data, index) => (
           <EducationListItem data={data} key={`${index}`} index={index} />
         ))}

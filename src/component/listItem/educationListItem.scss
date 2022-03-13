@@ -205,3 +205,35 @@
     }
   }
 }
+
+
+@media(max-width:380px) {
+  .eduListItem {
+    width: 330px;
+    height: 300px;
+      
+  .itemWrap {
+    position: relative;
+
+    &:hover {
+      
+    }
+    .testWrap {
+      position: absolute;
+      top: 0;
+      width: 330px;
+      transition: all 0.3s;
+      border-radius: 5px;
+
+      .imgWrap {
+        height: 220px;
+        overflow: hidden;
+
+        .imgShow {
+          height: 100%;
+        }
+      }
+    }
+  }
+ }
+}
