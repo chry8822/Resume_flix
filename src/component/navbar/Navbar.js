@@ -16,6 +16,7 @@ export default function Navbar(props) {
       <div className="container">
         <div className="left">
           <img onClick={props.pageToHome} src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
+          <span className="skills">SKILL</span>
           <span>HTML</span>
           <span>CSS</span>
           <span>JavaScript</span>
@@ -23,7 +24,6 @@ export default function Navbar(props) {
           <span>SASS</span>
         </div>
         <div className="right">
-          <Search className="icon" />
           <span>Develope KID</span>
           <div className="notice">
             <Notifications className="icon" />

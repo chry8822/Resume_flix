@@ -1,19 +1,15 @@
-import "./listItem.scss"
 import { useState, useRef, useEffect, useCallback } from 'react';
 import PlayCircleFilledWhiteOutlinedIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import ListModal from "../ListModal/ListModal";
+import "./listModal.scss"
 
-export default function ListItem(props) {
+export default function ListModal(props) {
   const { data, index } = props;
-  const [hoverIndex, setHoverIndex] = useState(-1);
   const [isActive, setIsActive] = useState(false);
   const [modalLeftOffset, setModalLeftOffset] = useState(0);
 
-
-  // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
+  
   const itemWrapRef = useRef();
   const testWrapRef = useRef();
 
@@ -43,23 +39,11 @@ export default function ListItem(props) {
     }
   }, []);
 
-  // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-  const hoveredStyle = {
-    opacity: 1,
-  }
-
-
-  function playVideo(index) {
-    return hoverIndex === index
-      ? hoverIndex === index && process.env.PUBLIC_URL + data.gif
-      : "";
-  }
 
   const onModalOpen = () => {
     // 위치 계산해가지고 modalStyle를 만든다
     const totalWidth = window.innerWidth;
-    const modalWidth = 1000;
+    const modalWidth = 800;
     let leftOffset = (totalWidth - modalWidth) / 2;
     if (itemWrapRef.current) {
       const el = itemWrapRef.current;
@@ -75,22 +59,14 @@ export default function ListItem(props) {
 
   return (
     <>
-      <div className="listItem "
-        onClick={()=> setIsActive(true) }
-        onMouseEnter={() => setHoverIndex(index)}
-        onMouseLeave={() => setHoverIndex(-1)}
-      >
+      <div className="ModalListItem" >
         <div className="itemWrap">
-          <div className="testWrap"
-            ref={testWrapRef}
-          >
+          <div className="testWrap">
             <div className="imgWrap">
-              <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + data.img}
-                autoPlay loop muted="muted"></video>
+              <video className="imgShow" src={process.env.PUBLIC_URL + data.gif} autoPlay loop muted="muted"></video>
               <div className="title">{data.title}</div>
             </div>
-            <div className="itemInfo"
-              style={hoverIndex === index ? hoveredStyle : {}}>
+            <div className="itemInfo">
               <div className="icons">
                 <button onClick={() => window.open(`${data.link}`, "_blank")}>
                   <PlayCircleFilledWhiteOutlinedIcon className="icon" />
@@ -126,14 +102,7 @@ export default function ListItem(props) {
           </div>
         </div>
       </div>
-
-      {
-        isActive &&
-        <ListModal data={data} index={index} onModalClose={() => setIsActive(false)} ref={testWrapRef}/>
-      }
-
     </>
-    
   )
 }
 

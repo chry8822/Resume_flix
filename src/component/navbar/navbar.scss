@@ -13,6 +13,10 @@
 
     span {
       color: var(--main-gray);
+      
+      &:hover {
+        color: #fff;
+      }
     }
   }
 
@@ -31,6 +35,12 @@
         margin-right: 40px;
         cursor: pointer;
       }      
+      .skills {
+        font-size: 20px;
+        font-weight:500;
+        font-style: italic;
+        color: var(--main-green);
+      }
       span {
         margin-right: 20px;
         transition: all 0.4s;
