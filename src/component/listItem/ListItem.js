@@ -6,26 +6,27 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import ListModal from "../ListModal/ListModal";
 
 export default function ListItem(props) {
-  const { data, index } = props;
-  const [hoverIndex, setHoverIndex] = useState(-1);
-  const [isActive, setIsActive] = useState(false);
-  const [modalLeftOffset, setModalLeftOffset] = useState(0);
-
-
-  // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-  const itemWrapRef = useRef();
+  const { data, handleClickListItem } = props;
+  const [hoverIndex, setHoverIndex] = useState(false);
   const testWrapRef = useRef();
+   /**
+    * {
+    *   current: undefined
+    * }
+    */
 
 
+
+  // 작아지는 애니메이션이 끝났을때 기존 z-index 값 1로 되돌리기 위한 함수
   const onMouseLeaveTransitionEnd = useCallback(() => {
     testWrapRef.current.style.zIndex = 1;
-
     testWrapRef.current.removeEventListener('transitionend', onMouseLeaveTransitionEnd);
   }, [])
 
   // [NOTE]: 마우스 호버시 zIndex 3으로 젤 높게 설정 (모든 리스트중에서 가장 위에 보임)
+  // 이벤트를 해제 하기 위해서 한번만 생성하기 위해서 useCallback 을 사용
   const onMouseEnter = useCallback(() => {
+    testWrapRef.current.removeEventListener('transitionend', onMouseLeaveTransitionEnd);
     testWrapRef.current.style.zIndex = 3;
   }, []);
 
@@ -36,12 +37,15 @@ export default function ListItem(props) {
     testWrapRef.current.addEventListener('transitionend', onMouseLeaveTransitionEnd);
   }, []);
 
+  
   useEffect(() => {
-    if(testWrapRef.current) {  
+    // if(testWrapRef.current) {
       testWrapRef.current.addEventListener('mouseenter', onMouseEnter);
       testWrapRef.current.addEventListener('mouseleave',onMouseLeave)
-    }
+    // }
   }, []);
+
+  // 마운트될때 이벤트를 한번만 걸기 위해서
 
   // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
@@ -49,48 +53,31 @@ export default function ListItem(props) {
     opacity: 1,
   }
 
-
-  function playVideo(index) {
-    return hoverIndex === index
-      ? hoverIndex === index && process.env.PUBLIC_URL + data.gif
+  function playVideo() {
+    return hoverIndex
+      ? process.env.PUBLIC_URL + data.gif
       : "";
-  }
-
-  const onModalOpen = () => {
-    // 위치 계산해가지고 modalStyle를 만든다
-    const totalWidth = window.innerWidth;
-    const modalWidth = 1000;
-    let leftOffset = (totalWidth - modalWidth) / 2;
-    if (itemWrapRef.current) {
-      const el = itemWrapRef.current;
-      const boundingRect = el.getBoundingClientRect();
-      leftOffset -= boundingRect.x;
-    }
-    console.log('leftOffset', leftOffset, isActive);
-    setModalLeftOffset(leftOffset);
-
-    // 브라우저의 현재너비
-    setIsActive(true);
   }
 
   return (
     <>
       <div className="listItem "
-        onClick={()=> setIsActive(true) }
-        onMouseEnter={() => setHoverIndex(index)}
-        onMouseLeave={() => setHoverIndex(-1)}
+        // onClick={()=> setIsActive(true) }
+        onClick={handleClickListItem}
+        onMouseEnter={() => setHoverIndex(true)}
+        onMouseLeave={() => setHoverIndex(false)}
       >
         <div className="itemWrap">
           <div className="testWrap"
             ref={testWrapRef}
           >
             <div className="imgWrap">
-              <video className="imgShow" src={playVideo(index)} poster={process.env.PUBLIC_URL + data.img}
+              <video className="imgShow" src={playVideo()} poster={process.env.PUBLIC_URL + data.img}
                 autoPlay loop muted="muted"></video>
               <div className="title">{data.title}</div>
             </div>
             <div className="itemInfo"
-              style={hoverIndex === index ? hoveredStyle : {}}>
+              style={hoverIndex ? hoveredStyle : {}}>
               <div className="icons">
                 <button onClick={() => window.open(`${data.link}`, "_blank")}>
                   <PlayCircleFilledWhiteOutlinedIcon className="icon" />
@@ -127,10 +114,10 @@ export default function ListItem(props) {
         </div>
       </div>
 
-      {
+      {/* {
         isActive &&
         <ListModal data={data} index={index} onModalClose={() => setIsActive(false)} ref={testWrapRef}/>
-      }
+      } */}
 
     </>
     

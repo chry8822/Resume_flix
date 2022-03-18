@@ -1,7 +1,7 @@
 import './app.scss';
 import Home from "./home/Home"
 import Data from "./data"
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
 
 export let dataContext = React.createContext();
@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <dataContext.Provider value={portfolio}>
         <Home pageToHome={pageToHome} />
+
       </dataContext.Provider>
     </div>
   );
