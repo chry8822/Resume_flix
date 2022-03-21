@@ -14,6 +14,7 @@ export default function ListModal(props) {
       <div className="ModalListItem">
         <div className="itemWrap">
           <div className="testWrap">
+            <img className='closeModal' onClick={onClose} src={process.env.PUBLIC_URL + "./닫기버튼.png"}/>
             <div className="imgWrap">
               <video className="imgShow" src={process.env.PUBLIC_URL + data.gif} autoPlay loop muted="muted"></video>
               <div className="title">{data.title}</div>
@@ -37,15 +38,12 @@ export default function ListModal(props) {
 
                 <div className="infoDecsWrap">
                   <div>
-                    <FiberManualRecordIcon className="dot" />
                     <div>{data.stack}</div>
                   </div>
                   <div>
-                    <FiberManualRecordIcon className="dot" />
                     <div>{data.desc}</div>
                   </div>
                   <div>
-                    <FiberManualRecordIcon className="dot" />
                     <div>{data.fn}</div>
                   </div>
                 </div>
