@@ -202,28 +202,38 @@
   }
 }
 
-@media(max-width:380px) {
-  .listItem {
-    width: 330px;
-    height: 300px;
+@media(max-width:680px) {
+  .ModalListItem {
+    width: 400px;
+    height: 500px;
+    margin: 0;
       
   .itemWrap {
-    position: relative;
     .testWrap {
+      width: 100%;
       position: absolute;
-      top: 0;
-      width: 330px;
       transition: all 0.3s;
       border-radius: 5px;
 
       .imgWrap {
-        height: 220px;
         overflow: hidden;
+
+        .title {
+          font-size: 30px;
+        }
 
         .imgShow {
           height: 100%;
         }
       }
+    }
+  }
+
+  .itemInfo {
+
+    .icons {
+      width: 100%;
+      padding-bottom: 10px;
     }
   }
  }

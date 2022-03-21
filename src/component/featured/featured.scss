@@ -134,16 +134,28 @@
           font-size: 25px;
           font-weight: 500;
           line-height: 35px;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
 
         .dot {
           font-size: small;
         }
+        .skillWrapper {
+          margin-top: 10px;
+          .skills {
+            font-size: 16px;
+            font-weight:500;
+            font-style: italic;
+            color: var(--main-green);
+          }
+           span {
+            font-size: 12px;
+            margin-left: 10px;
+          }
+        }
       }
 
       .buttons {
-        margin-top: 10px;
         display: flex;
   
         button {
@@ -209,12 +221,12 @@
 
     .myName::before {
       width: 100%;
-      font-size: 80px;
+      font-size: 70px;
       top: 15%;
     }
     .myName::after {
       width: 100%;
-      font-size: 80px;
+      font-size: 70px;
       top: 15%;
     }
     .infoWrap {
@@ -231,12 +243,16 @@
         .desc {
           line-height: 35px;
           padding-top: 0px;
+
+          li {
+            font-size: 15px;
+          }
         }
 
         .buttons{
-          .more {
-            display: none;
-          }
+          // .more {
+          //   display: none;
+          // }
           .download {
             padding: 15px;
             background-color: gray;
@@ -259,16 +275,12 @@
 
 
 @media (max-width: 680px ) {
-  .featured {
-    .yearWrap {
-     display: none;
-    }
-  }
-}
-
-@media (max-width: 380px ) {
    .featured {
     height: 600px;
+
+    .yearWrap {
+      display: none;
+     }
 
     .slider {
       height: 100%;
@@ -277,32 +289,44 @@
     .myName::before {
       width: 100%;
       font-size: 40px;
-      top: 15%;
+      top: 20%;
+      left: 0;
+      text-align: center;
+
     }
     .myName::after {
       width: 100%;
       font-size: 40px;
-      top: 15%;
+      top: 20%;
+      left: 0;
+      text-align: center;
     }
     .infoWrap {
+      width: 100%;
+
       .info {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: transparent;
         border-radius: 5px;
-        bottom: 5px;
-        left: 5px;
-        padding: 10px;
+        padding: 0 !important;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
 
         .title {
-          margin: 0;
-          font-size: 20px;
-          text-align: center;
+          display: none;
         }
 
         .desc {
-          line-height: 20px;
-          padding-top: 0px;
-          font-size: 1rem;
+          line-height: 10px;
+          margin: 0 !important;
+          font-size: 9px;
           text-align: center;
+
+
+          .descTitle{
+            font-size: 20px;
+            padding: 0 10px;
+          }
 
           div {
             font-size: 16px;
@@ -310,6 +334,7 @@
 
           li {
             margin-bottom: 5px;
+            font-size: 14px;
           }
 
           .dot {
@@ -319,11 +344,14 @@
         }
 
         .buttons{
+          margin-top: 0 !important;
+          margin: 0 auto;
+          padding-bottom: 10px;
           .more {
-            display: none;
+            background-color: var(--main-color);
           }
           .download {
-            display: none;
+            background-color: var(--main-color);
           }
         }
       }

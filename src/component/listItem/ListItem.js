@@ -66,6 +66,7 @@ export default function ListItem(props) {
         onClick={handleClickListItem}
         onMouseEnter={() => setHoverIndex(true)}
         onMouseLeave={() => setHoverIndex(false)}
+        ontouchstart=""
       >
         <div className="itemWrap">
           <div className="testWrap"

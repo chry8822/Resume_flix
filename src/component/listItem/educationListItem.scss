@@ -179,61 +179,84 @@
   }
 
 }
-
-
-@media (max-width: 680px ) {
+@media (max-width: 1000px ) {
 
   .eduListItem {
-
     .itemWrap {
-
-      .testWrap {
-   
-      }
-  
-      &:hover {
         .testWrap {
-          width: 550px;
-          height: 350px;
+          width: 500px;
           box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
-          top: -80px;
-          z-index: 999;
-          border-radius: 10px;
+          // top: -80px;
+          -webkit-tap-highlight-color:transparent;
           
+          .imgShow {
+            height: 300px;
+            border-top-left-radius: 5px ;
+            border-top-right-radius: 5px ;
+          }
         }
-     }
+        &:hover {
+          .testWrap {
+            width: 600px;
+            height: 400px;
+          }
+        }
+    }
+    .itemInfo {
+      .infoWrap {
+        .infoDecsWrap {
+          display: flex;
+          flex-direction: column;
+
+          div {
+            display: flex;
+            align-items: center;
+            padding: 3px;
+          }
+        }
+      }
     }
   }
 }
 
 
-@media(max-width:380px) {
+@media (max-width: 680px ) {
+
   .eduListItem {
-    width: 330px;
-    height: 300px;
-      
-  .itemWrap {
-    position: relative;
-
-    &:hover {
-      
+    .itemWrap {
+        .testWrap {
+          width: 440px;
+          height: 250px;
+          box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
+          // top: -80px;
+          -webkit-tap-highlight-color:transparent;
+          
+          .imgShow {
+            height: 300px;
+            border-top-left-radius: 5px ;
+            border-top-right-radius: 5px ;
+          }
+        }
+        &:hover {
+          .testWrap {
+            width: 500px;
+            height: 550px;
+          }
+        }
     }
-    .testWrap {
-      position: absolute;
-      top: 0;
-      width: 330px;
-      transition: all 0.3s;
-      border-radius: 5px;
+    .itemInfo {
+      .infoWrap {
+        .infoDecsWrap {
+          display: flex;
+          flex-direction: column;
 
-      .imgWrap {
-        height: 220px;
-        overflow: hidden;
-
-        .imgShow {
-          height: 100%;
+          div {
+            display: flex;
+            align-items: center;
+            padding: 3px;
+          }
         }
       }
     }
   }
- }
 }

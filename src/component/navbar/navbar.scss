@@ -35,16 +35,23 @@
         margin-right: 40px;
         cursor: pointer;
       }      
-      .skills {
-        font-size: 20px;
-        font-weight:500;
-        font-style: italic;
-        color: var(--main-green);
+      .snsWrapper {
+        display: flex;
+
+        a {
+          color: #fff;
+          font-size: 20px;
+          margin-right: 20px;
+          text-decoration: none;
+
+          img {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+          }
+        }
       }
-      span {
-        margin-right: 20px;
-        transition: all 0.4s;
-      }
+  
     }
 
     .right {
@@ -115,7 +122,7 @@
   }
 }
 
-@media (max-width:380px) {
+@media (max-width:680px) {
   .navbar {
 
     .left {

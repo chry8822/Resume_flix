@@ -51,22 +51,22 @@
   }
 }
 
-@media (max-width : 380px) {
+@media (max-width : 680px) {
   .eduList.list {
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .list {
     height: 300px;
-    margin-top: 15px;
+    margin-top: 20px;
 
     .listTitle {
       margin-left: 20px;
     }
 
     .warpper {
-
+      height: 250px;
       .sliderArrow {
-        width: 20px;
+        width: 40px;
         &.left {
           padding-left: 0px;
         }

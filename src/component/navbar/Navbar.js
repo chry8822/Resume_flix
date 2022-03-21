@@ -16,12 +16,16 @@ export default function Navbar(props) {
       <div className="container">
         <div className="left">
           <img onClick={props.pageToHome} src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
-          <span className="skills">SKILL</span>
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>React</span>
-          <span>SASS</span>
+         <div className="snsWrapper">
+           <a href="https://github.com/chry8822" target="_blank">
+            <img src={process.env.PUBLIC_URL + '/깃허브.png'}/>  
+             git-hub
+           </a>
+           <a href="https://covelope.tistory.com/" target="_blank">
+           <img src={process.env.PUBLIC_URL + '/티스토리.png'}/>  
+             Blog
+           </a>
+         </div>
         </div>
         <div className="right">
           <span>Develope KID</span>
@@ -31,7 +35,6 @@ export default function Navbar(props) {
               <span>무엇이든 알려주세요!</span>
             </div>
           </div>
-          <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="" />
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">

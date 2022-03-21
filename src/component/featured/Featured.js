@@ -33,14 +33,12 @@ export default function Featured() {
     transition: "all 0.3s"
   }
 
-  const changeButtonStyle = {
-    marginTop: "40px"
-  }
 
   const changeDescStyle = {
-    fontSize: "23px",
-    lineHeight: "40px",
-    transition: "all 0.3s"
+    fontSize: "20px",
+    lineHeight: "35px",
+    transition: "all 0.3s",
+    marginTop: "10px"
   }
 
   return (
@@ -59,8 +57,9 @@ export default function Featured() {
           style={isAboutZoomed ? changeInfoStyle : {}}
         >
           <div className="title"
-            style={{ fontSize: isAboutZoomed ? "60px" : "" }}
-          >About me</div>
+            style={{ fontSize: isAboutZoomed ? "40px" : "" }}>
+            {isAboutZoomed && "About me"}
+          </div>
           <ul className="desc"
             style={isAboutZoomed ? changeDescStyle : {}}
           >
@@ -86,16 +85,22 @@ export default function Featured() {
               <li>
                 <FiberManualRecordIcon className="dot" /> 함께 커피 마시고 지식을 나누고 성장할 때 성취감을 느낍니다.
               </li>
+              <div className="skillWrapper">
+                <span className="skills">SKILL</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>SASS</span>
+              </div>
             </div>
           </ul>
-          <div className="buttons"
-            style={isAboutZoomed ? changeButtonStyle : {}}
-          >
+          <div className="buttons">
             <button className="more"
               onClick={() => toggleZoom()}
             >
               <InfoOutlined />
-              <span>{isAboutZoomed ? "작게보기" : "크게보기"}</span>
+              <span>{isAboutZoomed ? "작게보기" : "내용보기"}</span>
             </button>
             <a className="download" href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>
               <PlayArrow />
