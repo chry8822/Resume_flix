@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { Component, useContext, useState } from 'react';
 import Navbar from "../component/navbar/Navbar"
 import Featured from './../component/featured/Featured';
 import List from './../component/list/List';
@@ -25,25 +25,27 @@ export default function Home(props) {
       </button>
       <Navbar pageToHome={props.pageToHome} />
       <Featured />
-      
+
       <List title="Project" eduList="list">
-        {
-          infoData.map((data, index) => 
-            (<ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }}/>)
-          )
-        }
+          {
+            infoData.map((data, index) =>
+              (<ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />)
+            )
+          }
       </List>
 
       <List title="Education" eduList="eduList list">
-        {eduData.map((data, index) => (
-          <EducationListItem data={data} key={`${index}`} index={index} />
-        ))}
+          {
+            eduData.map((data, index) => (
+              <EducationListItem data={data} key={`${index}`} index={index} />
+            ))
+          }
       </List>
 
       {
         modalIndex !== -1 && <Modal>
-          <ListModal data={infoData[modalIndex]} onClose={() => {setModalIndex(-1)}} />
-          </Modal>
+          <ListModal data={infoData[modalIndex]} onClose={() => { setModalIndex(-1) }} />
+        </Modal>
       }
 
       <Footer />

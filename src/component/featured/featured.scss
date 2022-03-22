@@ -19,41 +19,51 @@
   position: relative;
 
   .myName {
-    
-    &::before {
-      content: "OH KUK HWA";
-      display: block;
-      font-family: 'Black Han Sans', sans-serif;
-      color: #fff;
-      position: absolute;
-      font-size: 150px;
-      text-shadow: 3px 4px 2px rgb(0,0,0,0.7);
-      top: 20%;
-      left: 5%;
-      z-index: 999;
-      transition: all 0.5s;
-    }
-    &:hover::before {
-      opacity: 0;
-    }
-    &::after {
-      opacity: 0;
-      content: "오 국 화";
-      display: block;
-      font-family: 'Black Han Sans', sans-serif;
-      color: #fff;
-      position: absolute;
-      text-shadow: 3px 4px 2px rgb(0,0,0,0.7);
-      z-index: 999;
-      font-size: 150px;
-      top: 20%;
-      left: 5%;
-      transition: all 0.3s;
-    }
-    &:hover::after {
-      opacity: 1;
-      animation: focusIn 0.5s ease-in both;
-    }
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: 150px;
+    text-shadow: 3px 4px 2px rgb(0,0,0,0.7);
+    transition: all 0.5s;
+    color: #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    display: inline;
+    animation: focusIn 1.4s ease-in both;
+
+    // &::before {
+    //   content: "OH KUK HWA";
+    //   display: block;
+    //   font-family: 'Black Han Sans', sans-serif;
+    //   color: #fff;
+    //   position: absolute;
+    //   font-size: 150px;
+    //   text-shadow: 3px 4px 2px rgb(0,0,0,0.7);
+    //   top: 20%;
+    //   left: 5%;
+    //   z-index: 999;
+    //   transition: all 0.5s;
+    // }
+    // &:hover::before {
+    //   opacity: 0;
+    // }
+    // &::after {
+    //   opacity: 0;
+    //   content: "오 국 화";
+    //   display: block;
+    //   font-family: 'Black Han Sans', sans-serif;
+    //   color: #fff;
+    //   position: absolute;
+    //   text-shadow: 3px 4px 2px rgb(0,0,0,0.7);
+    //   z-index: 999;
+    //   font-size: 150px;
+    //   top: 20%;
+    //   left: 5%;
+    //   transition: all 0.3s;
+    // }
+    // &:hover::after {
+    //   opacity: 1;
+    //   animation: focusIn 0.5s ease-in both;
+    // }
   } 
 
 
@@ -210,25 +220,25 @@
   }
 
 }
-
+@media (max-height: 1100px ) {
+  .featured {
+    .myName {
+      font-size: 50px;
+    }
+  }
+}
 @media (max-width: 1100px ) {
   .featured {
-    height: 1000px;
+    height: 800px;
 
     .slider {
       height: 100%;
     }
 
-    .myName::before {
-      width: 100%;
-      font-size: 70px;
-      top: 15%;
+    .myName {
+      font-size: 90px;
     }
-    .myName::after {
-      width: 100%;
-      font-size: 70px;
-      top: 15%;
-    }
+
     .infoWrap {
       .info {
         background-color: rgba(0, 0, 0, 0.5);
@@ -274,7 +284,7 @@
 }
 
 
-@media (max-width: 680px ) {
+@media (hover: none) ,(max-width: 650px ) {
    .featured {
     height: 600px;
 
@@ -286,31 +296,23 @@
       height: 100%;
     }
 
-    .myName::before {
-      width: 100%;
+    .myName {
       font-size: 40px;
-      top: 20%;
-      left: 0;
       text-align: center;
+      width: 100%;
+      left: 0;
+    }
 
-    }
-    .myName::after {
-      width: 100%;
-      font-size: 40px;
-      top: 20%;
-      left: 0;
-      text-align: center;
-    }
     .infoWrap {
       width: 100%;
 
       .info {
+        width: 100%;
         background-color: transparent;
-        border-radius: 5px;
+        border-radius: 0;
         padding: 0 !important;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
 
         .title {
           display: none;
@@ -322,23 +324,30 @@
           font-size: 9px;
           text-align: center;
 
+          div {
+            line-height: 20px;
+          }
 
           .descTitle{
             font-size: 20px;
             padding: 0 10px;
           }
 
-          div {
-            font-size: 16px;
-          }
-
           li {
             margin-bottom: 5px;
-            font-size: 14px;
+            font-size: 11px;
           }
 
           .dot {
             display: none;
+          }
+
+          .skillWrapper {
+            margin-bottom: 10px;
+
+            span {
+              font-size: 10px;
+            }
           }
           
         }
@@ -347,12 +356,15 @@
           margin-top: 0 !important;
           margin: 0 auto;
           padding-bottom: 10px;
-          .more {
-            background-color: var(--main-color);
-          }
+          
+
+          .more,
           .download {
+            font-size: 15px;  
             background-color: var(--main-color);
+            padding: 10px;
           }
+         
         }
       }
     }

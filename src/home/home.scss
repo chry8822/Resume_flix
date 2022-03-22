@@ -26,6 +26,16 @@
       filter: invert(86%) sepia(99%) saturate(2%) hue-rotate(183deg) brightness(109%) contrast(97%);
     }
   }
+  
 }
 
 
+@media  ( hover: none) ,(max-width: 680px ) {
+  .home {
+    .moveTop {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+}

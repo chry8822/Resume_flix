@@ -3,7 +3,6 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import PlayCircleFilledWhiteOutlinedIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import ListModal from "../ListModal/ListModal";
 
 export default function ListItem(props) {
   const { data, handleClickListItem } = props;
@@ -74,7 +73,7 @@ export default function ListItem(props) {
           >
             <div className="imgWrap">
               <video className="imgShow" src={playVideo()} poster={process.env.PUBLIC_URL + data.img}
-                autoPlay loop muted="muted"></video>
+                autoPlay loop muted="muted" playsInline></video>
               <div className="title">{data.title}</div>
             </div>
             <div className="itemInfo"

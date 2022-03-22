@@ -220,43 +220,62 @@
 }
 
 
-@media (max-width: 680px ) {
 
-  .eduListItem {
-    .itemWrap {
-        .testWrap {
-          width: 440px;
-          height: 250px;
-          box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
-          // top: -80px;
-          -webkit-tap-highlight-color:transparent;
-          
-          .imgShow {
-            height: 300px;
-            border-top-left-radius: 5px ;
-            border-top-right-radius: 5px ;
-          }
-        }
-        &:hover {
-          .testWrap {
-            width: 500px;
-            height: 550px;
-          }
-        }
-    }
-    .itemInfo {
-      .infoWrap {
-        .infoDecsWrap {
-          display: flex;
-          flex-direction: column;
+@media (max-width: 640px ) {
 
-          div {
-            display: flex;
-            align-items: center;
-            padding: 3px;
+      .eduListItem {
+        width: 330PX;
+        height: 220px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-left: 20px;
+        box-sizing: border-box;
+        margin-right: 0;
+        
+        .itemWrap {
+          width: 100%;
+          position: relative;
+
+            .testWrap {
+              width: 100%;
+              height: 250px;
+              box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
+              // top: -80px;
+              margin: 0 auto;
+              
+              .imgShow {
+                width: 100%;
+                border-top-left-radius: 5px ;
+                border-top-right-radius: 5px ;
+              }
+            }
+            // &:hover 
+            //   .testWrap {
+            //     width: 330px;
+            //     height: 220px;
+            //   }
+            // }
+            .imgWrap {
+              .title {
+                font-size: 18px;
+                bottom: 18%;
+              }
+            }
+        }
+        .itemInfo {
+          .infoWrap {
+            .infoDecsWrap {
+              display: flex;
+              flex-direction: column;
+    
+              div {
+                display: flex;
+                align-items: center;
+                padding: 3px;
+              }
+            }
           }
         }
       }
+
     }
-  }
-}

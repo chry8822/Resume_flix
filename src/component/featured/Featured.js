@@ -7,6 +7,7 @@ import Slider from "../slider/Slider";
 
 export default function Featured() {
   const [isAboutZoomed, setisAboutZoomed] = useState(false);
+  const [isHoverd, setIsHoverd] = useState(false);
 
   function toggleZoom() {
     if (isAboutZoomed) {
@@ -16,7 +17,13 @@ export default function Featured() {
     }
   }
 
-
+  function toggleName() {
+    if (isHoverd) {
+      setIsHoverd(false)
+    } else {
+      setIsHoverd(true)
+    }
+  }
 
   function renderYear() {
     if (isAboutZoomed) {
@@ -46,7 +53,11 @@ export default function Featured() {
 
       <Slider />
 
-      <div className="myName"></div>
+      <div className="myName"
+        onClick={toggleName}
+      >
+        {isHoverd ? "오국화" : "OH KUK HWA"}
+      </div>
       <div className="yearWrap"
         style={{ width: isAboutZoomed ? "180px" : "120px" }}>
         <div className="year"

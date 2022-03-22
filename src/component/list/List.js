@@ -1,22 +1,36 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 import "./list.scss"
  
 const ITEM_WIDTH = 520;
+const ITEM_WIDTH_MEDIA = 350;
 
 export default function List(props) {
   const [sliderNumber, setSliderNumber] = useState(0)
   const listRef = useRef();
+  let viewWidth = window.innerWidth;
 
   const handleClick = (direction) => {
-    if (direction === "left" && sliderNumber > 0) {
+    console.log(ITEM_WIDTH_MEDIA )
+    
+    if (direction === "left" && sliderNumber > 0 && viewWidth > 640) {
       setSliderNumber(sliderNumber - 1)
       listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber - 1)}px)`
     }
-    if (direction === "right" && sliderNumber < 5) {
+    else if(direction === "left" && sliderNumber > 0 && viewWidth < 640) {
+      setSliderNumber(sliderNumber - 1)
+      listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA  * (sliderNumber - 1)}px)`
+    }
+
+    if (direction === "right" && sliderNumber < 4 && viewWidth > 640) {
       setSliderNumber(sliderNumber + 1)
       listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber + 1)}px)`
+    } 
+    else if(direction === "right" && sliderNumber < 4 && viewWidth < 640){
+      setSliderNumber(sliderNumber + 1)
+      listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA * (sliderNumber + 1)}px)`
     }
   }
 

@@ -205,8 +205,9 @@
 @media(max-width:680px) {
   .ModalListItem {
     width: 400px;
-    height: 500px;
+    height: 450px;
     margin: 0;
+    top: 45%;
       
   .itemWrap {
     .testWrap {
@@ -223,8 +224,11 @@
         }
 
         .imgShow {
-          height: 100%;
+          height: 200px;
         }
+      }
+      .closeModal {
+        right: 15px;
       }
     }
   }

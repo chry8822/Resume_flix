@@ -16,16 +16,16 @@ export default function Navbar(props) {
       <div className="container">
         <div className="left">
           <img onClick={props.pageToHome} src={process.env.PUBLIC_URL + '/mainlogo.png'} alt="" />
-         <div className="snsWrapper">
-           <a href="https://github.com/chry8822" target="_blank">
-            <img src={process.env.PUBLIC_URL + '/깃허브.png'}/>  
-             git-hub
-           </a>
-           <a href="https://covelope.tistory.com/" target="_blank">
-           <img src={process.env.PUBLIC_URL + '/티스토리.png'}/>  
-             Blog
-           </a>
-         </div>
+          <div className="snsWrapper">
+            <a href="https://github.com/chry8822" target="_blank">
+              <img src={process.env.PUBLIC_URL + '/깃허브.png'} />
+              <div>git-hub</div>
+            </a>
+            <a href="https://covelope.tistory.com/" target="_blank">
+              <img src={process.env.PUBLIC_URL + '/티스토리.png'} />
+              <div>Blog</div>
+            </a>
+          </div>
         </div>
         <div className="right">
           <span>Develope KID</span>
@@ -47,4 +47,3 @@ export default function Navbar(props) {
     </div>
   )
 }
- 

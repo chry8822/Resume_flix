@@ -4,7 +4,7 @@
   font-size: 14px;
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 9997;
   background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.7) 50%);
   transition: all 0.5s;
 
@@ -43,6 +43,8 @@
           font-size: 20px;
           margin-right: 20px;
           text-decoration: none;
+          display: flex;
+          align-items: center;
 
           img {
             width: 25px;
@@ -124,25 +126,49 @@
 
 @media (max-width:680px) {
   .navbar {
+    .container {
+      padding-left: 20px;
+      .left {
+        img {
+          height: 50px;
+        }
+        .snsWrapper {
+          position: absolute;
+          right: 0;
+          
+          a {
+            img {
+              width: 30px;
+              height: 30px;
+            }
+            div {
+              display: none;
+            }
+        
+          }
+        }
+        span {
+           display: none;
+        }
+      }
+      .right {
+        span {
+          display: none;
+        }
+        .notice {
+          display: none;
+        }
+        .profile {
+          display: none;
+        }
+        img {
+          display: none;
+        }
+        .icon {
+          display: none;
+        }
+      }
+    }
 
-    .left {
-      span {
-         display: none;
-      }
     }
-    .right {
-      .notice {
-        display: none;
-      }
-      .profile {
-        display: none;
-      }
-      img {
-        display: none;
-      }
-      .icon {
-        display: none;
-      }
-    }
-  }
 }
