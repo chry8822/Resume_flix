@@ -12,6 +12,9 @@ jobs:
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          repoToken: '${{ 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 }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_RESUME_CHRYS }}'
           projectId: react-resume-chrys
+
+
+#  repoToken: '${{ secrets.GITHUB_TOKEN }}'
