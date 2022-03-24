@@ -249,10 +249,10 @@
                 border-top-right-radius: 5px ;
               }
             }
-            // &:hover 
+            // &:hover {
             //   .testWrap {
-            //     width: 330px;
-            //     height: 220px;
+            //     width: inherit;
+            //     height: inherit;
             //   }
             // }
             .imgWrap {
@@ -278,4 +278,5 @@
         }
       }
 
-    }
+}
+
