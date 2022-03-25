@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>클로저</title>
+</head>
+
+<body>
+  <div id="text">0</div>
+  <button id="btn">클로저버튼</button>
+  <button id="decreaseBtn">클로저마이너버튼</button>
+
+  <script>
+    function num() {
+      let num = 0;
+      // function changeNum(e) {
+      //   if (e.currentTarget === increase) {
+      //     num++;
+      //   }
+      //   else if (e.currentTarget === decrease) {
+      //     if (num <= 0) {
+      //       return 0
+      //     } else {
+      //       num--;
+      //     }
+      //   }
+      //   return num;
+      //   console.log(increase, decrease)
+      // }
+      // return changeNum;
+
+      function increaseNumber() {
+        console.log('increase', num);
+        return ++num;
+      }
+
+      function decreaseNumber() {
+        if (num <= 0) {
+          num = 0;
+        } else {
+          num--;
+        }
+        console.log('decrease', num);
+        return num;
+      }
+      return { increaseNumber, decreaseNumber };
+    }
+
+    const { increaseNumber, decreaseNumber } = num()
+
+    // result = num();
+
+    const textElement = document.querySelector('#text');
+
+    const increase = document.querySelector("#btn")
+    increase.addEventListener("click", () => bindValue(increaseNumber(), textElement))
+
+    const decrease = document.querySelector("#decreaseBtn")
+    decrease.addEventListener("click", () => bindValue(decreaseNumber(), textElement))
+
+    function bindValue(value, el) {
+      // document.querySelector(selector).textContent = value;
+      el.textContent = value;
+    }
+
+    // function changeText(e) {
+    //   const res = test();
+    //   document.querySelector("#text").textContent = result(e);
+    // }
+
+
+  </script>
+</body>
+
+</html>

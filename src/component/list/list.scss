@@ -53,6 +53,7 @@
 }
 
 @media (hover: none) ,(max-width: 680px )  {
+
   .eduList.list {
     margin-top: 50px;
   }
@@ -79,6 +80,9 @@
       }
       .container {
         margin-left: 0;
+        // height: 300px;
+        height: auto;
+        width: 100%;
       }
   }
  }
