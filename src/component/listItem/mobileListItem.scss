@@ -1,0 +1,113 @@
+.mobileListItem {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  background-color: var(--main-color);
+  margin-right: 20px;
+  transition: all 0.4s;
+  color: #fff;
+
+  .itemWrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .testWrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: all 0.3s;
+      border-radius: 5px;
+
+    }
+
+    .imgWrap {
+      height: 100%;
+      transition: all 0.3s;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 5px;
+
+      .title {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 10%;
+        font-size: 30px;
+        text-shadow: 2px 2px 2px rgb(49, 49, 49);
+        font-family: 'Black Han Sans', sans-serif;
+        transition: all 0.3s;
+
+     }
+     .imgShow {
+       width: 100%;
+       object-fit: cover;
+       transition: all 0.3s;
+     }
+    }
+    
+  }
+
+  .itemInfo {
+    transition: all 0.3s;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--main-color);
+    box-sizing: border-box;
+
+    .icons {
+      display: flex;
+      margin-bottom: 10px;
+
+      button {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        margin-right: 20px;
+        cursor: pointer;
+        font-size: 18px;
+
+        .icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+
+       }
+      }  
+    }
+
+    .infoWrap{
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      padding-bottom: 10px;
+      flex-wrap: wrap;
+
+      .dot {
+        font-size: small;
+        color: gray;
+      }
+
+      .infoTime {
+        width: 100%;
+        margin-bottom: 10px;
+        .infoTimeNotice{
+          border: 1px solid  #46d369;;
+          border-radius: 4px;
+          padding: 5px;
+          margin-left: 10px;
+          color:  #46d369;;
+        }
+      }
+
+      div {
+        padding: 5px;
+      }
+    }
+  }
+}
+

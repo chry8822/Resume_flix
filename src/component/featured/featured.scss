@@ -219,6 +219,15 @@
     }
   }
 
+  .mobileText {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 25px;
+    font-weight: 500;
+  }
+
 }
 @media (max-height: 1100px ) {
   .featured {

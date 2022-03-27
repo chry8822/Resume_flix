@@ -188,27 +188,44 @@
 
 
 @media (hover: none) ,(max-width: 640px ) {
-
   .listItem {
-    width: 330PX;
-    height: 220px;
+    // width: 330PX;
+    // height: 220px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
     overflow: hidden;
     border-radius: 10px;
-    margin-left: 20px;
+    margin: 0 10px;
     box-sizing: border-box;
     margin-right: 0;
     
     .itemWrap {
       width: 100%;
-      position: relative;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      &:hover {
+        .testWrap {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          .imgWrap {
+            height: 100%;
+          }
+        }
+      }
 
         .testWrap {
           width: 100%;
-          height: 250px;
+          // height: 250px;
+          height: 100%;
           box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
           // top: -80px;
           margin: 0 auto;
-
           
           .imgShow {
             height: 100%;

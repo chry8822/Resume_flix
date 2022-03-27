@@ -163,38 +163,39 @@
 }
 
 @media (max-width: 680px ) {
-
-  .listItem {
-    .itemWrap {
-      .testWrap {
-      }
-      &:hover {
+  .ModalListItem {
+    .listItem {
+      .itemWrap {
         .testWrap {
-          width: 550px;
-          height: 550px;
-          box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
-          top: -80px;
-          z-index: 999;
-          border-radius: 10px;
-          
-          .imgShow {
-            height: 300px;
-            border-top-left-radius: 5px ;
-            border-top-right-radius: 5px ;
-          }
         }
-     }
-    }
-    .itemInfo {
-      .infoWrap {
-        .infoDecsWrap {
-          display: flex;
-          flex-direction: column;
-
-          div {
+        &:hover {
+          .testWrap {
+            width: 550px;
+            height: 550px;
+            box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.78);
+            top: -80px;
+            z-index: 999;
+            border-radius: 10px;
+            
+            .imgShow {
+              height: 300px;
+              border-top-left-radius: 5px ;
+              border-top-right-radius: 5px ;
+            }
+          }
+       }
+      }
+      .itemInfo {
+        .infoWrap {
+          .infoDecsWrap {
             display: flex;
-            align-items: center;
-            padding: 3px;
+            flex-direction: column;
+  
+            div {
+              display: flex;
+              align-items: center;
+              padding: 3px;
+            }
           }
         }
       }
