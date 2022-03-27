@@ -1,4 +1,4 @@
-import { Component, useContext, useState, useCallback, useEffect } from 'react';
+import { useContext, useState, useCallback, useEffect } from 'react';
 import Navbar from "../component/navbar/Navbar"
 import Featured from './../component/featured/Featured';
 import List from './../component/list/List';
@@ -10,9 +10,12 @@ import { dataContext } from '../App';
 import ListModal from '../component/ListModal/ListModal';
 import "./home.scss"
 import Modal from '../component/Modal/Modal';
+import MobileListItem from '../component/listItem/MobileListItem';
+import MobileEduListItem from '../component/listItem/MobileEduListItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ListTitle from '../component/listTitle/ListTitle';
 
-import 'swiper/css';
+import "swiper/css"
 
 export default function Home(props) { 
   let infoData = useContext(dataContext);
@@ -44,45 +47,79 @@ export default function Home(props) {
         <img src={process.env.PUBLIC_URL + "/TopArrow.png"} alt="" />
       </button>
       <Navbar pageToHome={props.pageToHome} />
-      <Featured />
+      <Featured isMobileView={isMobileView}/>
 
-      <List title="Project" eduList="list">
-        {
-          isMobileView && (
+    { 
+      isMobileView && 
+       (
+        <div>
+        <ListTitle title="Project"/>
+         <Swiper
+          spaceBetween={10}
+          slidesPerView={1}  
+        >
+        {    
+            infoData.map((data, index) =>
+                (
+                  <SwiperSlide>
+                    <MobileListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
+                  </SwiperSlide>
+                )
+          )
+        }
+        </Swiper>
+        </div>
+        )
+      }
+
+      {
+        isMobileView && (
+          <div>
+            <ListTitle title="Education"/>
             <Swiper
               spaceBetween={10}
-              slidesPerView={1}>
+              slidesPerView={1}  
+            >
+            {
+                eduData.map((data, index) =>
+                    (
+                      <SwiperSlide>
+                        <MobileEduListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
+                      </SwiperSlide>
+                    )
+                  )
+            }
+            </Swiper>
+          </div>
+        )
+      }
+
+
+
+        {
+          !isMobileView && 
+           <List title="Project" eduList="list">
             {
               infoData.map((data, index) =>
                 (
-                  <SwiperSlide>
-                    <ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
-                    {/* {index} */}
-                  </SwiperSlide>
+                  <ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
                 )
-              )
+             )
             }
-            </Swiper>
-          )
+          </List>
         }
-        {
-          !isMobileView && 
-            infoData.map((data, index) =>
-              (
-                <ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
-              )
-            )
-        }
-      </List>
 
-      <List title="Education" eduList="eduList list">
+      {
+        !isMobileView &&  
+        <List title="Education" eduList="eduList list">
           {
             eduData.map((data, index) => (
-              
               <EducationListItem data={data} key={`${index}`} index={index} />
             ))
           }
       </List>
+      }
+
 
       {
         modalIndex !== -1 && <Modal>

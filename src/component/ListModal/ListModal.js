@@ -16,7 +16,7 @@ export default function ListModal(props) {
           <div className="testWrap">
             <img className='closeModal' onClick={onClose} src={process.env.PUBLIC_URL + "./닫기버튼.png"}/>
             <div className="imgWrap">
-              <video className="imgShow" src={process.env.PUBLIC_URL + data.gif} autoPlay loop muted="muted"></video>
+              <video className="imgShow" src={process.env.PUBLIC_URL + data.gif} poster={process.env.PUBLIC_URL + data.img}  controls playinline muted="muted"></video>
               <div className="title">{data.title}</div>
             </div>
             <div className="itemInfo">

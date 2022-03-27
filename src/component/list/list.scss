@@ -52,38 +52,3 @@
   }
 }
 
-@media (hover: none) ,(max-width: 680px )  {
-
-  .eduList.list {
-    margin-top: 50px;
-  }
-  .list {
-    height: 300px;
-    margin-top: 20px;
-
-    .listTitle {
-      font-size: 20px;
-      margin-left: 25px;
-    }
-
-    .warpper {
-      height: 250px;
-      .sliderArrow {
-        width: 25px;
-        &.left {
-          padding-left: 0px;
-          background-color: transparent;
-        }
-        &.right {
-          top: 0;
-        }
-      }
-      .container {
-        margin-left: 0;
-        // height: 300px;
-        height: auto;
-        width: 100%;
-      }
-  }
- }
-}
