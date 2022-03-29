@@ -26,6 +26,18 @@ export default function Home(props) {
     setModalIndex(itemIndex);
   }
 
+  function openModal (itemIndex) {
+    setModalIndex(itemIndex);
+    //모달창 오픈시 바디 스크롤바 히든
+    document.body.style.overflow ="hidden";
+  }
+
+  function closeModal () {
+    setModalIndex(-1);
+    document.body.style.overflow ="scroll";
+  }
+
+
   const onResize = useCallback(() => {
     console.log('onResize');
     setIsMobileView(window.innerWidth < 680);
@@ -62,7 +74,7 @@ export default function Home(props) {
             infoData.map((data, index) =>
                 (
                   <SwiperSlide>
-                    <MobileListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
+                    <MobileListItem data={data} key={index} index={index} openModal={() => { openModal(index) }} />
                   </SwiperSlide>
                 )
           )
@@ -84,7 +96,7 @@ export default function Home(props) {
                 eduData.map((data, index) =>
                     (
                       <SwiperSlide>
-                        <MobileEduListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
+                        <MobileEduListItem data={data} key={index} index={index} />
                       </SwiperSlide>
                     )
                   )
@@ -102,7 +114,7 @@ export default function Home(props) {
             {
               infoData.map((data, index) =>
                 (
-                  <ListItem data={data} key={`${index}`} index={index} handleClickListItem={() => { handleClickListItem(index) }} />
+                  <ListItem data={data} key={`${index}`} index={index} openModal={() => { openModal(index) }} />
                 )
              )
             }
@@ -123,7 +135,7 @@ export default function Home(props) {
 
       {
         modalIndex !== -1 && <Modal>
-          <ListModal data={infoData[modalIndex]} onClose={() => { setModalIndex(-1) }} />
+          <ListModal data={infoData[modalIndex]} onClose={() => closeModal()} />
         </Modal>
       }
 

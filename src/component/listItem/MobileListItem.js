@@ -8,12 +8,12 @@ import "swiper/css"
 
 
 export default function MobileListItem(props) {
-  const { data,handleClickListItem } = props;
+  const { data,openModal } = props;
 
 
   return (
          <div className="mobileListItem "
-            onClick={handleClickListItem}
+            onClick={openModal}
          >
           <div className="itemWrap">
             <div className="testWrap">

@@ -5,7 +5,7 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 export default function ListItem(props) {
-  const { data, handleClickListItem } = props;
+  const { data,openModal } = props;
   const [hoverIndex, setHoverIndex] = useState(false);
   const testWrapRef = useRef();
    /**
@@ -62,7 +62,7 @@ export default function ListItem(props) {
     <>
       <div className="listItem "
         // onClick={()=> setIsActive(true) }
-        onClick={handleClickListItem}
+        onClick={openModal}
         onMouseEnter={() => setHoverIndex(true)}
         onMouseLeave={() => setHoverIndex(false)}
         ontouchstart=""

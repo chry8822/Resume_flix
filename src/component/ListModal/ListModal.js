@@ -11,7 +11,7 @@ export default function ListModal(props) {
   return (
     <>
       <div className="backdrop" onClick={onClose}></div>
-      <div className="ModalListItem">
+      <div className="ModalListItem target">
         <div className="itemWrap">
           <div className="testWrap">
             <img className='closeModal' onClick={onClose} src={process.env.PUBLIC_URL + "./닫기버튼.png"}/>
