@@ -50,7 +50,7 @@ export default [
   {
     id : 4,
     title : "Resume-Flix",
-    time : "7 days",
+    time : "14+ days",
     stack : "HTML, CSS, JS, React, Sass",
     desc : "넷플릭스ST 이력서",
     fn : "페이지 이동, 호버시 영상재생, Sns 링크",

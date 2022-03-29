@@ -115,7 +115,7 @@ export default function Featured() {
             </button>
             <a className="download" href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>
               <PlayArrow />
-              Download Resume
+              Download Resume (PDF)
             </a>
           </div>
         </div>
