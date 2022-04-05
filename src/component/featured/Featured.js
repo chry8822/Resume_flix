@@ -76,7 +76,7 @@ export default function Featured() {
           >
             <div className="descTitle">
               'Keep true to the dreams of thy youth' <br />
-              당신이 젊은 시절 꿈꾸었던 것에 충실하라’
+              "당신이 젊은 시절 꿈꾸었던 것에 충실하라"
             </div>
             <div
               style={{ display: isAboutZoomed ? "block" : "none" }}

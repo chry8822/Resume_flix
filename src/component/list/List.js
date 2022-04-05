@@ -21,19 +21,19 @@ export default function List(props) {
       setSliderNumber(sliderNumber - 1)
       listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber - 1)}px)`
     }
-    else if(direction === "left" && sliderNumber > 0 && viewWidth < 640) {
-      setSliderNumber(sliderNumber - 1)
-      listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA  * (sliderNumber - 1)}px)`
-    }
+    // else if(direction === "left" && sliderNumber > 0 && viewWidth < 640) {
+    //   setSliderNumber(sliderNumber - 1)
+    //   listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA  * (sliderNumber - 1)}px)`
+    // }
 
     if (direction === "right" && sliderNumber < 4 && viewWidth > 640) {
       setSliderNumber(sliderNumber + 1)
       listRef.current.style.transform = `translateX(${-ITEM_WIDTH * (sliderNumber + 1)}px)`
     } 
-    else if(direction === "right" && sliderNumber < 4 && viewWidth < 640){
-      setSliderNumber(sliderNumber + 1)
-      listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA * (sliderNumber + 1)}px)`
-    }
+    // else if(direction === "right" && sliderNumber < 4 && viewWidth < 640){
+    //   setSliderNumber(sliderNumber + 1)
+    //   listRef.current.style.transform = `translateX(${-ITEM_WIDTH_MEDIA * (sliderNumber + 1)}px)`
+    // }
   }
 
   return (

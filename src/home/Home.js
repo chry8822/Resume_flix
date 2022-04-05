@@ -117,7 +117,7 @@ export default function Home(props) {
                   <ListItem data={data} key={`${index}`} index={index} openModal={() => { openModal(index) }} />
                 )
              )
-            }
+            } 
           </List>
         }
 
@@ -134,7 +134,8 @@ export default function Home(props) {
 
 
       {
-        modalIndex !== -1 && <Modal>
+        modalIndex !== -1 &&
+        <Modal>
           <ListModal data={infoData[modalIndex]} onClose={() => closeModal()} />
         </Modal>
       }
