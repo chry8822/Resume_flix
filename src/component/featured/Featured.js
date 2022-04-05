@@ -113,7 +113,7 @@ export default function Featured() {
               <InfoOutlined />
               <span>{isAboutZoomed ? "작게보기" : "내용보기"}</span>
             </button>
-            <a className="download" href={process.env.PUBLIC_URL + "/resume.pdf"} target="_new" download>
+            <a className="download" href={process.env.PUBLIC_URL + "/프론트엔드_이력서_오국화.pdf"} target="_new" download>
               <PlayArrow />
               Download Resume (PDF)
             </a>
