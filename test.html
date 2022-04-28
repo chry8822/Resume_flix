@@ -14,24 +14,9 @@
   <script>
     function num() {
       let num = 0;
-      // function changeNum(e) {
-      //   if (e.currentTarget === increase) {
-      //     num++;
-      //   }
-      //   else if (e.currentTarget === decrease) {
-      //     if (num <= 0) {
-      //       return 0
-      //     } else {
-      //       num--;
-      //     }
-      //   }
-      //   return num;
-      //   console.log(increase, decrease)
-      // }
-      // return changeNum;
-
+      console.log(num)
+     
       function increaseNumber() {
-        console.log('increase', num);
         return ++num;
       }
 
@@ -41,7 +26,6 @@
         } else {
           num--;
         }
-        console.log('decrease', num);
         return num;
       }
       return { increaseNumber, decreaseNumber };
@@ -49,7 +33,6 @@
 
     const { increaseNumber, decreaseNumber } = num()
 
-    // result = num();
 
     const textElement = document.querySelector('#text');
 
@@ -60,15 +43,8 @@
     decrease.addEventListener("click", () => bindValue(decreaseNumber(), textElement))
 
     function bindValue(value, el) {
-      // document.querySelector(selector).textContent = value;
       el.textContent = value;
     }
-
-    // function changeText(e) {
-    //   const res = test();
-    //   document.querySelector("#text").textContent = result(e);
-    // }
-
 
   </script>
 </body>

@@ -46,6 +46,7 @@ export default function Home(props) {
   useEffect(() => {
     onResize();
     window.addEventListener('resize', onResize);
+    // 리턴은 언마운트 될때 실행된다.
     return () => {
       window.removeEventListener('resize', onResize);
     }
